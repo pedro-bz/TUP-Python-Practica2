@@ -4,6 +4,17 @@ from typing import Union
 
 
 def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]:  # noqa: E501
+
+    if multiplicar:
+        resultado = a * b
+    elif b == 0:
+        resultado = "Operación no válida"
+    else:
+        if b!=0:
+            resultado = a / b   
+    return resultado
+        
+
     """Toma dos números (a, b) y un booleano (multiplicar):
         - Si multiplicar es True: devuelve la multiplicación entre a y b.
         - Si multiplicar es False: devuelve la division entre a y b.
@@ -24,7 +35,7 @@ assert operacion_basica(25, 5, False) == 5
 assert operacion_basica(0, 5, True) == 0
 assert operacion_basica(0, 5, False) == 0
 assert operacion_basica(1, 0, True) == 0
-assert operacion_basica(1, 0, False) == "Operación no válida"
+assert operacion_basica(1, 0, False) == "Operación no válida" 
 # NO MODIFICAR - FIN
 
 
@@ -32,6 +43,13 @@ assert operacion_basica(1, 0, False) == "Operación no válida"
 
 
 def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, str]:  # noqa: E501
+    
+    if multiplicar:
+        return a*b
+    if b == 0:
+        return "Operación no válida" 
+    return a / b
+
     """Re-Escribir el ejercicio anterior utilizando tres returns.
 
     Restricciones:

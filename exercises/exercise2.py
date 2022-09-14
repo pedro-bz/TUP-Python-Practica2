@@ -58,6 +58,7 @@ assert maximo_cuadruple(24, 9, 18, 30) == 30
 
 
 def maximo_arbitrario(*args) -> float:
+    
     return max(*args)
 
     """Re-escribir para que tome una cantidad arbitraria de parámetros.

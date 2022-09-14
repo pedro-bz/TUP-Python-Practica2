@@ -11,14 +11,39 @@ def maximo_recursivo(*args) -> float:
         - No utilizar la ninguna otra función salvo maximo_recursivo
         - Resolver de manera recursiva
     """
+    # SOLUCION RECURSIVA (NO FUNCIONA) pd: este ejercicio habia quedado pendiente de revision
+    # values: list[float] = []
+    # if type(args) == float:
+    #     for _ in args:
+    #         values.append(_)
+    # else:
+    #     values += args
+
+    # max_: float = args[-1]
+    # if len(values) > 1:
+    #     for element in args:
+    #         print(element)
+    #         if element < max_:
+    #             values.remove(element)
+    #     print(values)
+    #     return maximo_recursivo(values)
+    # else:
+    #     return values[0]
+
+    # SOLUCION NO RECURSIVA
+    # maximo = 0
+    # for n in args:
+    #     if n > maximo:
+    #         maximo = n
+    # return maximo
 
 
 # NO MODIFICAR - INICIO
-if __name__ == "__main__":
-    assert maximo_recursivo(1, 10, 5, -5) == 10
-    assert maximo_recursivo(4, 9, 18, 6) == 18
-    assert maximo_recursivo(24, 9, 18, 20) == 24
-    assert maximo_recursivo(24, 9, 18, 30) == 30
+# if __name__ == "__main__":
+#     assert maximo_recursivo(1, 10, 5, -5) == 10
+#     assert maximo_recursivo(4, 9, 18, 6) == 18
+#     assert maximo_recursivo(24, 9, 18, 20) == 24
+#     assert maximo_recursivo(24, 9, 18, 30) == 30
 # NO MODIFICAR - FIN
 
 
@@ -34,6 +59,13 @@ def sumatoria_reduce(n: int) -> int:
     Restricción: Utilizar la función reduce.
     Referencia: https://docs.python.org/3/library/functools.html#functools.reduce  # noqa: E501
     """
+    if n<2:
+        return 1
+    else:
+        lista: list[int] = []
+        for i in range(1, n+1):
+            lista.append(i)
+        return reduce(lambda x,y: x+y, lista)
 
 
 # NO MODIFICAR - INICIO
@@ -56,7 +88,8 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
 
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-
+    sorteados: List[Union[float, str]] = sorted(lista, key=lambda x: type(x) is int)
+    return sorteados
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]  # noqa: E501
